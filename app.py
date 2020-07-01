@@ -4,6 +4,7 @@ import matplotlib.image as mpimg
 from docx import Document
 from flask import Flask,render_template,redirect,request,session
 from random import randrange
+from random import randint
 import os
 
 import warnings
