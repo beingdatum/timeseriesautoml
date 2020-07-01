@@ -26,5 +26,5 @@ statsmodels
 setuptools>=41.0.0
 srsly<1.10
 cython<0.29.18
-
+random
 
