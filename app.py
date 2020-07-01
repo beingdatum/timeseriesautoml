@@ -127,7 +127,7 @@ def submit_ts():
         forecast=m.predict(future)
         forecast_prophet=forecast[['ds','yhat']].tail(t)
         
-        #LSTM
+        """#LSTM
         
         
         train=datewise.iloc[:int(datewise.shape[0]*0.95)]
@@ -183,7 +183,7 @@ def submit_ts():
         d_proj.reset_index(drop=True, inplace=True)
         forecast_prophet.reset_index(drop=True, inplace=True) 
         d1=pd.DataFrame(forecast_prophet['ds'])
-        lstm=pd.concat([d1,d_proj],axis=1)
+        lstm=pd.concat([d1,d_proj],axis=1)"""
         small=float('inf')
         for i in range(len(list9)):
             if list9[i]<small:
