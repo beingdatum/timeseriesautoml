@@ -35,7 +35,7 @@ app.config["IMAGE_UPLOADS"] = "static/img/"
 @app.route('/')
 
 def hello():
-    return render_template("try.html")
+    return render_template("step1.html")
 
 
 
