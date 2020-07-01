@@ -1,7 +1,6 @@
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-from pyresparser import ResumeParser
 from docx import Document
 from flask import Flask,render_template,redirect,request,session
 from random import randrange
