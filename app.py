@@ -142,7 +142,7 @@ def submit_ts():
         n_features=1
         generator=TimeseriesGenerator(scaled_train,scaled_train,length=n_input,batch_size=1)
         model=Sequential()
-        model.add(LSTM(150,activation='relu',input_shape=(n_input,n_features)))
+        model.add(LSTM(5,activation='relu',input_shape=(n_input,n_features)))
         model.add(Dense(1))
         model.compile(optimizer='adam',loss='mse')
         
@@ -168,7 +168,7 @@ def submit_ts():
         n_input=len(test)
         n_features=1
         generator=TimeseriesGenerator(train,train,length=n_input,batch_size=1)
-        model.fit_generator(generator,epochs=5)
+        model.fit_generator(generator,epochs=1)
         test_predictions=[]
         first_eval_batch=train[-n_input:]
         current_batch=first_eval_batch.reshape((1,n_input,n_features))
@@ -221,7 +221,7 @@ def submit_ts():
         ax.set_title('forecasted data of '+s4)
         plt.xticks(rotation=90)
         plt.show()
-        n=randint(0,1000000000000)
+        n=randint(0,100000000)
         n=str(n)
         fig.savefig(os.path.join(app.config["IMAGE_UPLOADS"],n+'time_series.png'))  
                 
