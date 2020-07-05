@@ -128,7 +128,7 @@ def submit_ts():
         forecast=m.predict(future)
         forecast_prophet=forecast[['ds','yhat']].tail(t)
         
-        """#LSTM
+        #LSTM
         
         
         train=datewise.iloc[:int(datewise.shape[0]*0.95)]
@@ -146,7 +146,7 @@ def submit_ts():
         model.add(Dense(1))
         model.compile(optimizer='adam',loss='mse')
         
-        model.fit_generator(generator,epochs=30)
+        model.fit_generator(generator,epochs=5)
         
         first_eval_batch=scaled_train[-n_input:]
         test_predictions=[]
@@ -168,7 +168,7 @@ def submit_ts():
         n_input=len(test)
         n_features=1
         generator=TimeseriesGenerator(train,train,length=n_input,batch_size=1)
-        model.fit_generator(generator,epochs=30)
+        model.fit_generator(generator,epochs=5)
         test_predictions=[]
         first_eval_batch=train[-n_input:]
         current_batch=first_eval_batch.reshape((1,n_input,n_features))
@@ -184,7 +184,7 @@ def submit_ts():
         d_proj.reset_index(drop=True, inplace=True)
         forecast_prophet.reset_index(drop=True, inplace=True) 
         d1=pd.DataFrame(forecast_prophet['ds'])
-        lstm=pd.concat([d1,d_proj],axis=1)"""
+        lstm=pd.concat([d1,d_proj],axis=1)
         small=float('inf')
         for i in range(len(list9)):
             if list9[i]<small:
