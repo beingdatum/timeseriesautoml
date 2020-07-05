@@ -273,7 +273,7 @@ def submit_ts():
         nobs=12
         train, test = df_transformed[0:-nobs], df_transformed[-nobs:]
         model = VARMAX(train, order=(p,q), trend='c')
-        results = model.fit(maxiter=100, disp=False)
+        results = model.fit(maxiter=10, disp=False)
         results.summary()
         df_forecast = results.forecast(nobs)
         for i in range(len(n5)):
@@ -290,7 +290,7 @@ def submit_ts():
             RMSE = rmse(datewise[n5[i]][-nobs:], df_forecast[list98[i]])
             print('Root Mean Square Error for ' + n5[i] +':' , RMSE)
         model = VARMAX(df_transformed, order=(p,q), trend='c')
-        results = model.fit(maxiter=100, disp=False)
+        results = model.fit(maxiter=10, disp=False)
         results.summary()
         #t=int(input('Enter number of days to forecast ? :'))
         df_forecast = results.forecast(t)
@@ -316,7 +316,7 @@ def submit_ts():
             fig.tight_layout(pad=1.0)
         plt.show()
         
-        n=randint(0,1000000000000)
+        n=randint(0,1000000)
         n=str(n)
         fig.savefig(os.path.join(app.config["IMAGE_UPLOADS"],n+'time_series.png'))  
                 
