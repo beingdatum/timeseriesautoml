@@ -146,7 +146,7 @@ def submit_ts():
         model.add(Dense(1))
         model.compile(optimizer='adam',loss='mse')
         
-        model.fit_generator(generator,epochs=5)
+        model.fit_generator(generator,epochs=1)
         
         first_eval_batch=scaled_train[-n_input:]
         test_predictions=[]
